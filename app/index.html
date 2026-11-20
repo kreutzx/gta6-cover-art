@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VICEFRAME Studio — Poster Cover Art Maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <h1>VICEFRAME <span>Studio</span></h1>
+  <p class="tagline">Turn your own photos into bold multi-panel poster cover art — fully offline, nothing uploaded.</p>
+</header>
+
+<main class="studio">
+  <section class="stage" aria-label="Poster preview">
+    <canvas id="previewCanvas" width="900" height="900"></canvas>
+    <p id="statusLine" class="status" role="status">Loading studio…</p>
+    <div class="export-bar">
+      <label>Export size
+        <select id="exportSizeSelect"></select>
+      </label>
+      <button id="exportButton" type="button" class="primary">Export PNG</button>
+      <button id="shuffleButton" type="button">Shuffle</button>
+      <button id="undoButton" type="button">Undo</button>
+      <button id="redoButton" type="button">Redo</button>
+    </div>
+  </section>
+
+  <aside class="controls" aria-label="Editor controls">
+    <fieldset>
+      <legend>1 · Your photos</legend>
+      <label class="file-label">Load photos from this device
+        <input id="photoInput" type="file" accept="image/*" multiple>
+      </label>
+      <div id="sampleRow" class="sample-row"></div>
+      <p class="hint">Photos are read locally in your browser and never leave the machine.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>2 · Layout &amp; grade</legend>
+      <label>Poster layout <select id="layoutSelect"></select></label>
+      <label>Colour grade <select id="gradeSelect"></select></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>3 · Caption lettering</legend>
+      <label>Display title <input id="titleInput" type="text" maxlength="40"></label>
+      <label>Script subtitle <input id="subtitleInput" type="text" maxlength="60"></label>
+      <label>Star meter <input id="starRange" type="range" min="0" max="5" step="1" value="5"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>4 · Panel framing</legend>
+      <label>Selected panel <select id="panelSelect"></select></label>
+      <label>Panel photo <select id="photoAssignSelect"></select></label>
+      <label>Pan sideways <input id="panXRange" type="range" min="-0.5" max="0.5" step="0.01" value="0"></label>
+      <label>Pan up / down <input id="panYRange" type="range" min="-0.5" max="0.5" step="0.01" value="0"></label>
+      <label>Zoom <input id="zoomRange" type="range" min="1" max="3" step="0.05" value="1"></label>
+      <label>Rotate <input id="rotateRange" type="range" min="-30" max="30" step="1" value="0"></label>
+      <p class="hint">Tip: click a panel in the preview to select it.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>5 · Poster dressing</legend>
+      <label class="check"><input type="checkbox" data-dressing="ribbon"> Ribbon banner</label>
+      <label class="check"><input type="checkbox" data-dressing="stars"> Star meter</label>
+      <label class="check"><input type="checkbox" data-dressing="rays"> Sun rays</label>
+      <label class="check"><input type="checkbox" data-dressing="palms"> Palm silhouettes</label>
+      <label class="check"><input type="checkbox" data-dressing="halftone"> Halftone dots</label>
+      <label class="check"><input type="checkbox" data-dressing="grain"> Film grain</label>
+      <label class="check"><input type="checkbox" data-dressing="vignette"> Vignette</label>
+    </fieldset>
+  </aside>
+</main>
+
+<footer class="colophon">
+  <p>VICEFRAME Studio is an original poster maker. Display lettering: Anton; script lettering: Pacifico — both under the SIL Open Font License (see fonts/OFL.txt).</p>
+</footer>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
